@@ -5,7 +5,7 @@ kill2								{killer_color}{killer}^* {victim_color}{victim}^*'i öldürerek ^y{
 kill3								{killer_color}{killer}^* {victim_color}{victim}^*'i öldürerek ^y{gold}^* gold!! Yardım edenler: {assist0_color}{assist0}^*, {assist1_color}{assist1}^*, {assist2_color}{assist2}
 kill4								{killer_color}{killer}^* {victim_color}{victim}^*'i öldürerek ^y{gold}^* gold!! Yardım edenler: {assist0_color}{assist0}^*, {assist1_color}{assist1}^*, {assist2_color}{assist2}^*, {assist3_color}{assist3}
 first_kill							{killer_color}{killer}^* ^rİlk Vuruş^*! u yaptı (^y+{gold}^* Altın Kazandı!)
-first_kill_team						{killer_color}{killer}^* ^rİlk Vuruş^*! u yaptı (^y+{gold}^* Altın dağıtıldı!)
+first_kill_team						        {killer_color}{killer}^* ^rİlk Vuruş^*! u yaptı (^y+{gold}^* Altın dağıtıldı!)
 killstreak0							{killer_color}{killer}^* artık bir ^082Seri Katil^*!
 killstreak1							{killer_color}{killer}^* artık bir ^204Hayvani Savaşçı^*!
 killstreak2							{killer_color}{killer}^* artık bir ^808Efsane^*!
