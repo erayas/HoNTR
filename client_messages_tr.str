@@ -2,7 +2,7 @@
 error_unknown					Tanımlanamayan Hata.
 
 disconnect_title				Bağlantı Koptu
-disconnect_not_host				Bu serverde host özelliklerine sahip değilsiniz.
+disconnect_not_host				Bu serverde yetkili özelliklerine sahip değilsiniz.
 disconnect_server_full			Sunucu Dolu.
 disconnect_game_in_progress		Oyuna giremezsiniz, çünkü oyun başlamış durumda.
 disconnect_server_error			Sunucu Hatası.
@@ -517,8 +517,8 @@ chat_command_invalid_command		^279* Yanlış komut. {helpcommand} komutunu yazar
 chat_command_help_valid				^279* Kullanılabilir komutlar :
 chat_command_help_whisper			^279*^707 /whisper <Kullanıcı Adı> <Mesajınız>^279  -Oyuncuya fısıldarsınız.
 chat_command_help_reply				^279*^707 /reply <Mesajınız>^279               -Son kullanıcıya fısıldarsınız.
-chat_command_help_buddy				^279*^707 /buddy <command> <arguments>^279   -Various buddy-related commands.
-chat_command_help_clan				^279*^707 /clan <command> <arguments>^279    -Various clan-related commands.
+chat_command_help_buddy				^279*^707 /buddy <command> <arguments>^279   -Çeşitli arkadaş listesi komutları.
+chat_command_help_clan				^279*^707 /clan <command> <arguments>^279    -Çeşitli Grup komutları.
 chat_command_help_join				^279*^707 /join <channel> "password"^279     -İsmini yazdığınız odaya giriş yapmanızı sağlar (Şifre var ise Join den sonra yazınız).
 chat_command_help_clear				^279*^707 /clear^279                         -Sohbet geçmişini siler.
 chat_command_help_invite			^279*^707 /invite <Kullanıcı Adı>^279        -Oyuna davet etmeniz için invite'den sonra davet edeceğiniz kişinin kullanıcı adını giriniz.
