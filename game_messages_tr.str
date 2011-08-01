@@ -277,7 +277,7 @@ shop_action_cannot_afford_recipe	^rBu item kağıdı alınamıyor
 shop_action_purchase_item			^yİtemi ^195SATIN ALMAK^* için Tıklayın
 shop_action_purchase_item_stash		^yBu itemi ^195SAKLAMAK^* için Tıklayın
 shop_action_purchase_recipe			^yBu itemin kağıdını ^195SATIN ALMAK^* İçin Tıkla
-shop_action_unavailable				^rBurda Geçersiz
+shop_action_unavailable				^rGeçersiz İşlem
 
 vote_called						{color}{player}^* oylama açıyor: {vote}
 vote_called_concede				{color}{player}^* oylama açarak {team_color}{team}^* pes ediyorlar.
