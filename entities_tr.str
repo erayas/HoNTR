@@ -1,11 +1,11 @@
 // Game Mechanics
-AttackType_none													None
-AttackType_melee												Melee
-AttackType_ranged												Ranged
+AttackType_none													Yok
+AttackType_melee												Yakın
+AttackType_ranged												Uzak
 
-EffectType_Attack												Attack
-EffectType_Physical												Physical
-EffectType_Magic												Magic
+EffectType_Attack												Atak
+EffectType_Physical												Fiziksel
+EffectType_Magic												Büyü
 EffectType_StatusBuff											Buff
 EffectType_StatusDebuff											Debuff
 EffectType_StatusDisable										
