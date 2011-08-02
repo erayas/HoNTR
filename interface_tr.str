@@ -5163,11 +5163,11 @@ specui_options_abilityUsage			Ability Usage
 specui_options_abilityUsage_txt		Display ability usage popups.
 
 //vid driver options
-options_label_vid_quality			Video Driver
-main_vid_confirm					Video Driver
-main_vid_confirm_info				You must restart HoN before your changes will take effect.
-button_restart_later				Later
-button_restart_now					Restart HoN Now
+options_label_vid_quality			Video Sürücüsü
+main_vid_confirm					Video Sürücüsü
+main_vid_confirm_info				Efektlerin etkin olabilmesi için oyunu kapatıp açın.
+button_restart_later				Sonra
+button_restart_now					Yeniden Başlat
 
 
 // End - do not delete this line
