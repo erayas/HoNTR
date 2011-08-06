@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+
+	<style name="sysbar_btn_up" color="#36435c" />
+	<style name="sysbar_btn_overdn" color="#0745b7" />
+
+	<texture file="frames/sysbar_back_tl.tga" nocompress="true" />
+	<texture file="frames/sysbar_back_t.tga" nocompress="true" />
+	<texture file="frames/sysbar_back_tr.tga" nocompress="true" />
+	<texture file="frames/sysbar_back_l.tga" nocompress="true" />
+	<texture file="frames/sysbar_back_c.tga" nocompress="true" />
+	<texture file="frames/sysbar_back_r.tga" nocompress="true" />
+	<texture file="frames/sysbar_back_bl.tga" nocompress="true" />
+	<texture file="frames/sysbar_back_b.tga" nocompress="true" />
+	<texture file="frames/sysbar_back_br.tga" nocompress="true" />
+	<texture file="systembar/icons/notifications.tga" nocompress="true" />
+	<texture file="systembar/icons/usersonline.tga" nocompress="true" />
+	<texture file="systembar/icons/report.tga" nocompress="true" />
+	<texture file="/ui/fe2/elements/flag_br.tga" nocompress="true" />
+	<texture file="/ui/fe2/elements/flag_de.tga" nocompress="true" />
+	<texture file="/ui/fe2/elements/flag_en.tga" nocompress="true" />
+	<texture file="/ui/fe2/elements/flag_es.tga" nocompress="true" />
+	<texture file="/ui/fe2/elements/flag_fr.tga" nocompress="true" />
+	<texture file="/ui/fe2/elements/flag_vn.tga" nocompress="true" />
+	<texture file="/ui/fe2/elements/flag_ru.tga" nocompress="true" />
+	<texture file="/ui/fe2/elements/flag_tr.tga" nocompress="true" />
+
+
+	<include file="notifications.package"/>
+	<include file="social_groups.package"/>
+
+	<!-- Need for language flag -->
+	<trigger name="language_chosen" />
+	<trigger name="LanguageSelectorVisible" />
+
+	<!-- Social Group Panel Controls -->
+
+	<template name="SocialGroupToggleHelper">
+		<panel noclick="true" color="invisible"
+			watch="SocialGroupPanelToggle" ontrigger="
+				If((!IsVisible('{panel}') and StringEquals(_socialgroups_currentpanel,'{panel}')), Split(ShowWidget('{panel}'), SleepWidget(500,'Trigger(\'SocialGroupVisiblePanel\',\'{panel}\');'), Call('{panel}', 'SleepWidget(200, \'SlideY(\\\'2.2h\\\', 300)\');')), If(IsVisible('{panel}'), Call('{panel}', 'SlideY(\'-49.6h\', 300); SleepWidget(200, \'HideWidget(\\\'{panel}\\\');\');')));
+			"/>
+	</template>
+
+	<trigger name="SocialGroupVisiblePanel"/>
+	<trigger name="SocialGroupPanelToggle"/>
+
+	<panel name="SocialGroupPanelSwitcher" noclick="true" color="invisible"
+		onload="CreateString('_socialgroups_currentpanel', '');"
+		onevent="
+			If(StringEquals(_socialgroups_currentpanel,'') or (IsVisible(_socialgroups_currentpanel) and !StringEquals(_socialgroups_currentpanel,'')), SleepWidget(200,'Trigger(\'SocialGroupVisiblePanel\',\'\');'));
+			If(
+				IsVisible(_socialgroups_currentpanel) or StringEmpty(_socialgroups_currentpanel),
+				Call('mini_notifications', 'SleepWidget(200, \'SlideX(\\\'-.5h\\\', 200);\');'),
+				If(
+					StringEquals(_socialgroups_currentpanel, 'notification_history'),
+					Call('mini_notifications', 'SlideX(\'-26.5h\', 200);'),
+					Call('mini_notifications', 'SlideX(\'-20.5h\', 200);')
+				)
+			);
+			Trigger('SocialGroupPanelToggle');
+		"/>
+
+	<instance name="SocialGroupToggleHelper" panel="friends_list" />
+	<instance name="SocialGroupToggleHelper" panel="clan_list" />
+	<instance name="SocialGroupToggleHelper" panel="notification_history" />
+
+	<!-- Under Nickname Panel Controls (figured I'd just set it up to be group-ready now rather than later, also easier to code -->
+
+	<template name="NickMenuToggleHelper">
+		<panel noclick="true" color="invisible"
+			watch="NickMenuPanelToggle" ontrigger="
+				If((!IsVisible('{panel}') and StringEquals(_nickmenu_currentpanel,'{panel}')), Split(ShowWidget('{panel}'), SleepWidget(500,'Trigger(\'NickMenuVisiblePanel\',\'{panel}\');'), Call('{panel}', 'SleepWidget(200, \'SlideY(\\\'2.2h\\\', 300)\');')), If(IsVisible('{panel}'), Call('{panel}', 'SlideY(\'-20h\', 300); SleepWidget(200, \'HideWidget(\\\'{panel}\\\');\');')));
+			"/>
+	</template>
+
+	<trigger name="NickMenuVisiblePanel"/>
+	<trigger name="NickMenuPanelToggle"/>
+
+	<panel name="NickMenuPanelSwitcher" noclick="true" color="invisible"
+		onload="CreateString('_nickmenu_currentpanel', '');"
+		onevent="
+			If(StringEquals(_nickmenu_currentpanel,'') or (IsVisible(_nickmenu_currentpanel) and !StringEquals(_nickmenu_currentpanel,'')), SleepWidget(200,'Trigger(\'NickMenuVisiblePanel\',\'\');'));
+			Trigger('NickMenuPanelToggle');
+		"/>
+
+	<instance name="NickMenuToggleHelper" panel="account_extras_shop" />
+
+	<!-- IM/Etc. group fade controls -->
+
+	<trigger name="InstantMessagePanelToggle"/>
+
+	<template name="InstantMessageToggleHelper">
+		<panel
+			noclick="true"
+			color="invisible"
+			watch="InstantMessagePanelToggle"
+			ontrigger="
+				If((!IsVisible('{panel}') and StringEquals(_instantmessages_currentpanel,'{panel}')),
+					Call('{panel}', 'FadeIn(250);'),
+					If(IsVisible('{panel}'),
+						Call('{panel}', 'FadeOut(250);')
+					)
+				);
+			"
+		/>
+	</template>
+
+	<panel name="InstantMessagePanelSwitcher" noclick="true" color="invisible"
+		onload="CreateString('_instantmessages_currentpanel', '');"
+		onevent="
+			Trigger('InstantMessagePanelToggle');
+		"
+	/>
+
+	<instance name="InstantMessageToggleHelper" panel="ccwidget_whisper" />
+
+	<!-- Sysbar Drop Comboboxes -->
+	<template name="sysbar_combobox_username_item">
+		<label height="100%" y="-4%" x="35@" font="dyn_10" color="{color=white}" textvalign="center" noclick="true" shadow="true" shadowoffset="1" content="{label}" />
+	</template>
+
+	<template name="sysbar_combobox_lang_item">
+		<image width="100@" height="100%" x="35@" y="14%" noclick="true" texture="{texture}"/>
+		<label height="100%" y="-4%" x="160@" font="dyn_10" color="{color=white}" textvalign="center" noclick="true" shadow="true" shadowoffset="1" content="{label}"/>
+	</template>
+
+	<template name="sysbar_combobox_state">
+		<widgetstate statename="{state}">
+			<panel color="invisible">
+				<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color="{color}" blockinput="false" noclick="true"/>
+				<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+
+				<panel grow="true" height="100%" align="right" float="right" padding="0.5h" noclick="true">
+					<panel width="1" height="100%" valign="center" noclick="true">
+						<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+					</panel>
+					<panel grow="true" height="100%" noclick="true">
+						<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" />
+					</panel>
+					<panel width="1" height="100%" color="invisible"/>
+				</panel>
+			</panel>
+		</widgetstate>
+	</template>
+
+	<!-- Group Lists -->
+	<instance name="friends_list"/>
+	<instance name="clan_list"/>
+
+	<panel visible="true" name="systembar" width="100%" height="2.6h" noclick="true">
+
+		<!-- Update Notification	Display if logged in - and update is available -->
+		<!-- Removed this notification as it is redundant, but leaving the remnants here in case further version testing is needed - JT
+		<panel name="update_available" grow="true" y="2.0h" height="3.0h" align="center" valign="top" noclick="true" visible="false" watch="UpdaterStatus" ontrigger="SetVisible(param == 3 or param == 7);">
+			<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color="#b30a0ae9" blockinput="false" noclick="true"/>
+			<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+			<panel grow="true" x="0.8h" y="-0.1h" height="2.2h" valign="bottom" noclick="true" float="right">
+				<label fitx="true" fitxpadding="0.8h" height="100%" textvalign="center" font="dyn_10" color="white" shadow="true" content="client_outofdate" noclick="true"/>
+
+				<panel height="100%" width="0.8h"/>
+			</panel>
+		</panel>		
+		-->
+
+		<frame texture="frames/sysbar_back.tga" borderthickness="33@" color="#7aa4ee" noclick="true" />
+
+		<!-- Left -->
+		<panel grow="true" y="-0.1h" x="0.5h" height="-0.4h" align="left" valign="center" float="right" padding="0.4h" color="invisible" noclick="true">
+
+			<!-- Date Display -->
+			<panel width="12h">
+				<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color=".3 .3 .3 .5"/>
+				<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h"/>
+				<label x="0.4h" width="3.5h" height="100%" textvalign="center" font="dyn_10" color="white" shadow="true" watch="SystemWeekday" ontrigger="SetText(Translate(param));"/>
+				<panel x="4.7h" width="1" height="86%" valign="center" color="black"/>
+				<button x="-0.4h" width="6.7h" align="right" color="invisible" onclick="Toggle(cg_24hourClock);">
+					<label textalign="right" textvalign="center" font="dyn_10" color="white" shadow="true" watch="SystemTime" ontrigger="SetText(param);"/>
+				</button>
+			</panel>
+
+			<!-- Options -->
+			<panel width="2.8h" sticky="true" stickytoinvis="false">
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_options_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_options_tip');"
+					onclick="Set('_mainmenu_currentpanel', 'game_options'); CallEvent('MainMenuPanelSwitcher');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/options.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/options.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/options.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+				</button>
+			</panel>
+
+			<!-- Offline Replays -->
+			<panel width="2.8h" sticky="true" stickytoinvis="false">
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_replays_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_replays_tip');"
+					onclick="Set('_mainmenu_currentpanel', 'offline_replays'); CallEvent('MainMenuPanelSwitcher');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/offlinereplays.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/offlinereplays.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/offlinereplays.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+				</button>
+
+			</panel>
+
+			<!-- Changelog Btn -->
+			<panel width="2.8h" sticky="true" stickytoinvis="false">
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_changelog_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_changelog_tip');"
+					onclick="Set('_mainmenu_currentpanel', 'change_log'); CallEvent('MainMenuPanelSwitcher');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/changelog.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/changelog.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/changelog.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+				</button>
+			</panel>
+
+			<!-- MOTD Toggle -->
+			<panel width="2.8h" sticky="true" stickytoinvis="false" visible="false" watch="LoginStatus" ontrigger="SetVisible(param2 and !cl_GarenaEnable);">
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_motd_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_motd_tip');"
+					onclick="
+						If(
+							IsVisible('store_container'),
+							CallEvent('store_container', 1)
+						);
+						Set('_mainmenu_currentpanel', ''); CallEvent('MainMenuPanelSwitcher'); SubmitForm('MessageOfTheDay', 'data', 'retrieve');
+					"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="80@" height="80%" align="center" valign="center" texture="systembar/icons/motd.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="80@" height="80%" align="center" valign="center" texture="systembar/icons/motd.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="80@" height="80%" align="center" valign="center" texture="systembar/icons/motd.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+				</button>
+				<animatedimage texture="/ui/elements/throb/throb.tga" noclick="true" loop="1" fps="30" onshow="StartAnim(1);" visible="false" watch="MessageOfTheDayStatus" ontrigger="SetVisible(param == 1);" />
+			</panel>
+			
+			<!-- GMs Online Display -->
+			<panel name="sysbar_gmsonline" width="2.8h" visible="false" sticky="true" stickytoinvis="false" onmouseover="ShowWidget('sysbar_gmsonline_tip');" onmouseout="HideWidget('sysbar_gmsonline_tip');">
+				<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color=".3 .3 .3 1" blockinput="false" noclick="true"/>
+				<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+				<image width="80@" height="80%" align="center" valign="center" texture="/ui/icons/gm.tga" noclick="true" />
+				<label width="100%" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="-"/>
+			</panel>
+
+			<!-- New Language - Combobox - Needs a way to disable if logged in -->
+			<panel
+				width="15.0h" height="100%"
+				visible="true"
+				sticky="true"
+				stickytoinvis="false"
+				onshow="Trigger('language_chosen');"
+			>
+				<combobox
+					name="language_selector_combobox"
+					width="100%"
+					height="100%"
+					align="left"
+					valign="center"
+					color="invisible"
+					itemwidth="100%"
+					itemheight="2.2h"
+					cvar="host_language"
+					maxlistheight="90h"
+					exteriorscrollbars="false"
+					scrolltexture="/ui/info/combobox.tga"
+					handleheight="100@" handlewidth="100%"
+					highlight="under"
+					highlightbordercolor="white"
+					onselect=""
+					onmouseover="PlaySound('/shared/sounds/ui/button_over_02.wav');"
+					onload="
+						AddTemplateListItem('sysbar_combobox_lang_item', 'en', 'code', 'en', 'texture', '/ui/fe2/elements/flag_en.tga', 'label', 'lang_en');
+						if (
+							!cl_GarenaEnable,
+							Split(
+								AddTemplateListItem('sysbar_combobox_lang_item', 'fr', 'code', 'fr', 'texture', '/ui/fe2/elements/flag_fr.tga', 'label', 'lang_fr'),
+								AddTemplateListItem('sysbar_combobox_lang_item', 'tr', 'code', 'tr', 'texture', '/ui/fe2/elements/flag_tr.tga', 'label', 'lang_tr'),
+								AddTemplateListItem('sysbar_combobox_lang_item', 'de', 'code', 'de', 'texture', '/ui/fe2/elements/flag_de.tga', 'label', 'lang_de'),
+								AddTemplateListItem('sysbar_combobox_lang_item', 'br', 'code', 'br', 'texture', '/ui/fe2/elements/flag_br.tga', 'label', 'lang_br'),
+								AddTemplateListItem('sysbar_combobox_lang_item', 'es', 'code', 'es', 'texture', '/ui/fe2/elements/flag_es.tga', 'label', 'lang_es'),
+								AddTemplateListItem('sysbar_combobox_lang_item', 'ro', 'code', 'ro', 'texture', '/ui/fe2/elements/flag_ro.tga', 'label', 'lang_ro')
+							)
+						);
+						
+						if (
+							!cl_GarenaEnable,
+							Split(
+								AddTemplateListItem('sysbar_combobox_lang_item', 'vn', 'code', 'vn', 'texture', '/ui/fe2/elements/flag_vn.tga', 'label', 'lang_vn'),
+								AddTemplateListItem('sysbar_combobox_lang_item', 'ru', 'code', 'ru', 'texture', '/ui/fe2/elements/flag_ru.tga', 'label', 'lang_ru')
+							)
+							
+						);
+						
+					"
+				>
+					<instance name="sysbar_combobox_state" state="up" style="sysbar_btn_up" />
+					<instance name="sysbar_combobox_state" state="over" style="sysbar_btn_overdn" />
+					<instance name="sysbar_combobox_state" state="down" style="sysbar_btn_overdn" />
+					<widgetstate statename="listbg">
+						<frame height="+2.7h" y="-1.9h" texture="/ui/info/combobox_dropdown.tga" borderthickness="1.0h" color="white" />
+					</widgetstate>
+					<widgetstate statename="itembg">
+						<panel width="100%" />
+					</widgetstate>
+					<widgetstate statename="itemhighlight">
+						<panel width="100%" texture="/ui/info/header_bar_c.tga">
+							<panel width="100%" height="100%" >
+								<image height="50%" width="32" align="left" valign="top" texture="/ui/info/header_bar_tl.tga" noclick="1"/>
+								<image height="50%" width="32" align="left" valign="bottom" texture="/ui/info/header_bar_bl.tga" noclick="1"/>
+								<image height="50%" width="32" align="right" valign="top" texture="/ui/info/header_bar_tr.tga" noclick="1"/>
+								<image height="50%" width="32" align="right" valign="bottom" texture="/ui/info/header_bar_br.tga" noclick="1"/>
+							</panel>
+						</panel>
+					</widgetstate>
+
+				</combobox>
+
+			</panel>
+
+			<!-- Report Player Btn -->
+			<panel width="2.8h" sticky="true" stickytoinvis="false" watch="LoginStatus" ontrigger="SetVisible(param2 and !cl_GarenaEnable);">
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_report_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_report_tip');"
+					onclick="Set('_mainmenu_currentpanel', 'form_report_abuse'); CallEvent('MainMenuPanelSwitcher');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/report.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/report.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/report.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+				</button>
+
+			</panel>
+			
+		</panel>
+
+		<!-- Center -->
+		<panel name="sysbar_logged" visible="true" grow="true" y="-0.1h" height="-0.4h" align="center" valign="center" float="right" padding="0.5h" color="invisible" noclick="true" watch="LoginStatus" ontrigger="SetVisible(param2);">
+
+			<label fitx="true" height="100%" textvalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="main_label_logged_in_as"/>
+
+			<!-- NEW Logged As Username -->
+			<panel width="17.0h" height="100%">
+				<!-- Acocunt Upgrade Combobox -->
+				<combobox
+					name="account_extras_combobox"
+					width="100%"
+					height="100%"
+					align="left"
+					valign="center"
+					color="invisible"
+					itemwidth="100%"
+					itemheight="2.2h"
+					maxlistheight="90h"
+					exteriorscrollbars="false"
+					scrolltexture="/ui/info/combobox.tga"
+					handleheight="100@" handlewidth="100%"
+					highlight="under"
+					highlightbordercolor="white"
+					onopen="HideWidget('ae_throbber'); Set('sysbar_accextras_highlight', false);"
+					onselect="PlaySound('/shared/sounds/ui/button_click_05.wav'); HideWidget('sysbar_account_extras_tip_'# this); Set('_mainmenu_currentpanel', this); CallEvent('MainMenuPanelSwitcher'); HideWidget('ae_throbber'); Set('sysbar_accextras_highlight', false);"
+					onmouseover="PlaySound('/shared/sounds/ui/button_over_02.wav'); If(!cl_GarenaEnable, ShowWidget('sysbar_account_extras_tip_'#GetSelectedItemName()));"
+					onmouseout="HideWidget('sysbar_account_extras_tip_'#GetSelectedItemName());"
+					onload="
+						If(
+							!cl_GarenaEnable,
+							Split(
+								AddTemplateListItem('sysbar_combobox_username_item', 'form_create_subaccount', 'label', 'purch_subacct'),
+								AddTemplateListItem('sysbar_combobox_username_item', 'form_reset_stats', 'label', 'purch_resetstats'),
+								AddTemplateListItem('sysbar_combobox_username_item', 'form_name_change', 'label', 'purch_nickchange')
+							)
+						);
+					"
+					 watch="AccountInfo"
+					 ontrigger="If(
+						((param2 le 2 and param2 != 0) or IsFreeAccount()) and !cl_GarenaEnable,
+						If(
+							!HasListItem('form_upgrade_account'),
+							AddTemplateListItem('sysbar_combobox_username_item', 'form_upgrade_account', 'label', 'purch_upgradeaccount')
+						),
+						If(
+							HasListItem('form_upgrade_account'),
+							EraseListItemByValue('form_upgrade_account')
+						)
+					 );"
+				>
+					<instance name="sysbar_combobox_state" state="up" style="sysbar_btn_up" />
+					<instance name="sysbar_combobox_state" state="over" style="sysbar_btn_overdn" />
+					<instance name="sysbar_combobox_state" state="down" style="sysbar_btn_overdn" />
+					<widgetstate statename="listbg">
+						<frame height="+2.7h" y="-1.9h" texture="/ui/info/combobox_dropdown.tga" borderthickness="1.0h" color="white" />
+					</widgetstate>
+					<widgetstate statename="itembg">
+						<panel width="100%" />
+					</widgetstate>
+					<widgetstate statename="itemhighlight">
+						<panel width="100%" texture="/ui/info/header_bar_c.tga">
+							<panel width="100%" height="100%" >
+								<image height="50%" width="32" align="left" valign="top" texture="/ui/info/header_bar_tl.tga" noclick="1"/>
+								<image height="50%" width="32" align="left" valign="bottom" texture="/ui/info/header_bar_bl.tga" noclick="1"/>
+								<image height="50%" width="32" align="right" valign="top" texture="/ui/info/header_bar_tr.tga" noclick="1"/>
+								<image height="50%" width="32" align="right" valign="bottom" texture="/ui/info/header_bar_br.tga" noclick="1"/>
+							</panel>
+						</panel>
+					</widgetstate>
+				</combobox>
+
+				<!-- Username Display / Combobox Cover -->
+				<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color="#36435c" blockinput="false" noclick="true"/>
+				<frame name="login_name_hover" visible="false" texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color="#0745b7" blockinput="false" noclick="true"/>
+				<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+				<label y="-0.2h" x="0.7h" fitx="true" height="100%" textvalign="center" font="dyn_10" color="white" shadow="true" noclick="true" watch="AccountInfo" ontrigger="SetText(param1);" watch1="ChatUpdateName" ontrigger1="SetText(param);"/>
+				<panel grow="true" height="100%" align="right" float="right" padding="0.5h" noclick="true">
+					<panel width="1" height="100%" valign="center" noclick="true">
+						<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+					</panel>
+					<panel grow="true" height="100%" noclick="true">
+						<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" />
+					</panel>
+					<panel width="1" height="100%" color="invisible" noclick="true"/>
+				</panel>
+				
+				<!-- Op:  AE Throbber-->
+				<panel name="ae_throbber" noclick="true" visible="false"
+					onload="
+					
+						If(
+							!VarExists('sysbar_accextras_highlight'),
+							Split(
+								CreateBool('sysbar_accextras_highlight', true),
+								Cmd('SetSave sysbar_accextras_highlight true')
+							)
+						);
+						SetVisible(sysbar_accextras_highlight and !cl_GarenaEnable);
+					
+					"
+				>
+					<modelpanel
+						noclick="true"
+						model="/ui/common/models/main/button.mdf"
+						anim="idle"
+						camerapos="0 -1500 2"
+						cameraangles="0 0 0"
+						camerafov="4.42"
+						carmerafar="7000"
+						depthclear="false"
+						depthcompress="true"
+						sunazimuth="140"
+						sunaltitude="10"
+						suncolor="1.4 1.3 1"
+						onshow="SetEffect('/ui/common/models/main/button.effect'));"
+					/>
+					<frame color="invisible" borderthickness="1" bordercolor="0 0 0 1" blockinput="false" noclick="true"/>
+				</panel>
+
+			</panel>
+
+			<!-- OLD Logged As Username 
+			<panel width="17.0h" height="100%">
+			
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_accextras_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_accextras_tip');"
+					onclick="PlaySound('/shared/sounds/ui/menu/systembar_language_slide.wav'); PlaySound('/shared/sounds/ui/button_click_01.wav'); Set('_nickmenu_currentpanel', 'account_extras_shop'); CallEvent('NickMenuPanelSwitcher');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">							
+							<panel width="-2.0h" height="100%" noclick="true">
+								<label y="-0.1h" x="0.2h" fitx="true" height="100%" textvalign="center" font="dyn_10" color="white" shadow="true" noclick="true" watch="AccountInfo" ontrigger="SetText(param1);" watch1="ChatUpdateName" ontrigger1="SetText(param);"/>
+							</panel>							
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="NickMenuVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'account_extras_shop'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="NickMenuVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'account_extras_shop'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="over">					
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">							
+							<panel width="-2.0h" height="100%" noclick="true">
+								<label y="-0.1h" x="0.2h" fitx="true" height="100%" textvalign="center" font="dyn_10" color="white" shadow="true" noclick="true" watch="AccountInfo" ontrigger="SetText(param1);" watch1="ChatUpdateName" ontrigger1="SetText(param);"/>
+							</panel>							
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="NickMenuVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'account_extras_shop'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="NickMenuVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'account_extras_shop'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">					
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">							
+							<panel width="-2.0h" height="100%" noclick="true">
+								<label y="-0.1h" x="0.2h" fitx="true" height="100%" textvalign="center" font="dyn_10" color="white" shadow="true" noclick="true" watch="AccountInfo" ontrigger="SetText(param1);" watch1="ChatUpdateName" ontrigger1="SetText(param);"/>
+							</panel>							
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="NickMenuVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'account_extras_shop'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="NickMenuVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'account_extras_shop'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+				</button>
+			</panel>
+			-->
+
+			<!-- Stats Btn -->
+			<panel width="2.8h" sticky="true" stickytoinvis="false">
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_stats_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_stats_tip');"
+					onclick="
+						Set('_player_stats_searchname', GetAccountName());
+						CallEvent('player_stats_submit');
+						Set('_mainmenu_currentpanel', 'player_stats');
+						CallEvent('MainMenuPanelSwitcher');
+					"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/stats.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/stats.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/stats.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+				</button>
+			</panel>
+
+			<panel width="2.8h" noclick="true">
+				<!-- To preserve proper float behavior/have them in the same spot -->
+
+
+				<!-- Disconnect Icon -->
+				<panel width="2.8h" sticky="true" stickytoinvis="false" visible="false" watch="GamePhase" ontrigger="SetVisible(param);">
+
+					<button
+						color="invisible"
+						onmouseover="ShowWidget('sysbar_disconnect_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+						onmouseout="HideWidget('sysbar_disconnect_tip');"
+						onclick="
+							PlaySound('/shared/sounds/ui/button_click_01.wav');
+							If(GetCurrentGamePhase() ge 3 and IsValidLeaverGame(), Call('disconnect_confirm_leaver', 'FadeIn(250);'), Call('disconnect_confirm', 'FadeIn(250);'));
+						"
+					>
+						<widgetstate statename="up">
+							<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+							<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+							<image width="76@" height="76%" align="center" valign="center" texture="systembar/icons/disconnect.tga" color="1 1 1 1" noclick="true" />
+						</widgetstate>
+						<widgetstate statename="over">
+							<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+							<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+							<image width="76@" height="76%" align="center" valign="center" texture="systembar/icons/disconnect.tga" color="1 1 1 1" noclick="true" />
+						</widgetstate>
+						<widgetstate statename="down" x="1" y="1">
+							<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+							<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+							<image width="76@" height="76%" align="center" valign="center" texture="systembar/icons/disconnect.tga" color="1 1 1 1" noclick="true" />
+						</widgetstate>
+					</button>
+
+
+				</panel>
+
+				<!-- Logout Button -->
+				<panel width="2.8h" sticky="true" stickytoinvis="false" noclick="true" watch="GamePhase" ontrigger="SetVisible(!param and !cl_GarenaEnable);" visible="true">
+
+					<!--
+					<instance
+						name="button2"
+						width="8.0h" height="100%"
+						borderthickness="0.6h"
+						font="dyn_10"
+						label="main_button_logout"
+						onmouseover="PlaySound('/shared/sounds/ui/button_over_01.wav');"
+						onclick="
+							Logout();
+							Exec('~/login.cfg');
+							Call('main_login_button', 'SetEnabled(!StringEmpty(login_name) and !StringEquals(login_password, MD5(\'\')));');
+							Set('_mainmenu_currentpanel', ''); CallEvent('MainMenuPanelSwitcher'); HideWidget('ccwidget_whisper');
+						"
+					/>
+					-->
+
+					<button
+						color="invisible"
+						onmouseover="ShowWidget('sysbar_logout_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+						onmouseout="HideWidget('sysbar_logout_tip');"
+						onclick="
+							If(
+								!IsVisible('store_container'),
+								DoEvent(0),
+								Split(
+									CallEvent('store_container', 1),
+									Sleepwidget(
+										200,
+										'DoEvent(0);'
+									)
+								)
+							);
+						"
+						onevent0="
+							Logout();
+							Exec('~/login.cfg');
+							Call('main_login_button', 'SetEnabled(!StringEmpty(login_name) and !StringEquals(login_password, MD5(\'\')));');
+							Set('_mainmenu_currentpanel', ''); CallEvent('MainMenuPanelSwitcher'); HideWidget('ccwidget_whisper');
+						"
+					>
+						<widgetstate statename="up">
+							<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+							<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+							<image width="76@" height="76%" align="center" valign="center" texture="systembar/icons/logout.tga" color="1 1 1 1" noclick="true" />
+						</widgetstate>
+						<widgetstate statename="over">
+							<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+							<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+							<image width="76@" height="76%" align="center" valign="center" texture="systembar/icons/logout.tga" color="1 1 1 1" noclick="true" />
+						</widgetstate>
+						<widgetstate statename="down" x="1" y="1">
+							<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+							<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+							<image width="76@" height="76%" align="center" valign="center" texture="systembar/icons/logout.tga" color="1 1 1 1" noclick="true" />
+						</widgetstate>
+					</button>
+
+
+				</panel>
+
+			</panel>
+
+			<!-- Purchase Btn -->
+			<panel width="2.4h" sticky="true" stickytoinvis="false" visible="false" watch="AccountInfo" ontrigger="SetVisible(((param2 le 2 and param2 != 0) or IsFreeAccount()) and !cl_GarenaEnable);">
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_purchase_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_purchase_tip');"
+					onclick="Set('_mainmenu_currentpanel', 'form_upgrade_account'); CallEvent('MainMenuPanelSwitcher');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/purchase.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/purchase.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<image width="70@" height="70%" align="center" valign="center" texture="systembar/icons/purchase.tga" color="1 1 1 1" noclick="true" />
+					</widgetstate>
+				</button>
+
+			</panel>
+
+
+
+		</panel>
+
+		<!-- Right -->
+		<panel grow="true" y="-0.1h" x="-0.5h" height="-0.4h" align="right" valign="center" float="right" padding="0.5h" color="invisible" noclick="true">
+
+			<!-- Users Online -->
+			<panel name="sysbar_onlineinfo" visible="true" width="8.6h" height="100%" color="invisible" onmouseover="ShowWidget('sysbar_playersonline_tip');" onmouseout="HideWidget('sysbar_playersonline_tip');" watch="LoginStatus" ontrigger="SetVisible(param2);">
+				<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color=".3 .3 .3 .5" blockinput="false" noclick="true"/>
+				<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+				<panel width="-1.0h" align="center" height="100%" noclick="true">
+					<image width="74@" height="74%" align="left" valign="center" texture="systembar/icons/usersonline.tga" color="1 1 1 1" noclick="true" />
+					<label width="-80@" height="100%" align="right" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatUsersOnline" ontrigger="SetText(FtoA(param, 0, 0, ','));"/>
+				</panel>
+			</panel>
+
+			<!-- IMs -->
+			<panel
+				name="sysbar_IMs"
+				visible="true"
+				width="5.1h" height="100%"
+				watch="LoginStatus"
+				ontrigger="SetVisible(param2);"
+			>
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_im_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_im_tip');"
+					onclick="
+						PlaySound('/shared/sounds/ui/menu/systembar_im_open.wav');
+						If(ChatUnreadIMCount gt 0, SetFocusedIM(im_last));
+						Set('_instantmessages_currentpanel', 'ccwidget_whisper');
+						CallEvent('InstantMessagePanelSwitcher');
+						PlaySound('/shared/sounds/ui/button_click_01.wav');
+					"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color="#dc0000" blockinput="false" noclick="true" visible="false" watch="ChatUnreadIMCount" ontrigger="SetVisible(param ge 1);"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" noclick="true">
+							<image width="74@" height="74%" align="left" valign="center" texture="systembar/icons/ims.tga" color="1 1 1 1" noclick="true" />
+							<label width="-80@" height="100%" align="right" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatUnreadIMCount" ontrigger="SetText(param);"/>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color="1 0 0 1" blockinput="false" noclick="true" visible="false" watch="ChatUnreadIMCount" ontrigger="SetVisible(param ge 1);"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" noclick="true">
+							<image width="74@" height="74%" align="left" valign="center" texture="systembar/icons/ims.tga" color="1 1 1 1" noclick="true" />
+							<label width="-80@" height="100%" align="right" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatUnreadIMCount" ontrigger="SetText(param);"/>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" color="1 0 0 1" blockinput="false" noclick="true" visible="false" watch="ChatUnreadIMCount" ontrigger="SetVisible(param ge 1);"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" noclick="true">
+							<image width="74@" height="74%" align="left" valign="center" texture="systembar/icons/ims.tga" color="1 1 1 1" noclick="true" />
+							<label width="-80@" height="100%" align="right" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatUnreadIMCount" ontrigger="SetText(param);"/>
+						</panel>
+					</widgetstate>
+				</button>
+			</panel>
+
+			<!-- Friends -->
+			<panel
+				name="sysbar_friendsonline"
+				visible="true"
+				width="8.0h" height="100%"
+				color="invisible"
+				watch="LoginStatus"
+				ontrigger="SetVisible(param2);"
+			>
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_friendslist_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_friendslist_tip');"
+					onclick="Set('_socialgroups_currentpanel', 'friends_list'); CallEvent('SocialGroupPanelSwitcher'); PlaySound('/shared/sounds/ui/button_click_01.wav'); PlaySound('/shared/sounds/ui/menu/systembar_slide.wav');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/friends.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatOnlineFriends" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'friends_list'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'friends_list'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/friends.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatOnlineFriends" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'friends_list'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'friends_list'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/friends.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatOnlineFriends" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'friends_list'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'friends_list'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+				</button>
+			</panel>
+
+			<!-- Clan -->
+			<panel
+				name="sysbar_clanonline"
+				visible="true"
+				width="8.0h" height="100%"
+				color="invisible"
+				watch="LoginStatus"
+				ontrigger="SetVisible(param2);"
+			>
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_clanlist_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_clanlist_tip');"
+					onclick="Set('_socialgroups_currentpanel', 'clan_list'); CallEvent('SocialGroupPanelSwitcher'); PlaySound('/shared/sounds/ui/button_click_01.wav'); PlaySound('/shared/sounds/ui/menu/systembar_slide.wav');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/clans.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatOnlineClanMembers" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'clan_list'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'clan_list'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/clans.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatOnlineClanMembers" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'clan_list'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'clan_list'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/clans.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatOnlineClanMembers" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'clan_list'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'clan_list'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+				</button>
+			</panel>
+
+			<!-- Notifications -->
+			<panel
+				name="sysbar_notifications"
+				visible="true"
+				width="8.0h" height="100%"
+				color="invisible"
+				watch="LoginStatus"
+				ontrigger="SetVisible(param2);"
+			>
+				<button
+					color="invisible"
+					onmouseover="ShowWidget('sysbar_notifications_tip'); PlaySound('/shared/sounds/ui/button_over_01.wav');"
+					onmouseout="HideWidget('sysbar_notifications_tip');"
+					onclick="Set('_socialgroups_currentpanel', 'notification_history'); CallEvent('SocialGroupPanelSwitcher'); PlaySound('/shared/sounds/ui/button_click_01.wav'); PlaySound('/shared/sounds/ui/menu/systembar_slide.wav');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_up" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/notifications.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatNotificationCount" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'notification_history'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'notification_history'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/notifications.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatNotificationCount" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'notification_history'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'notification_history'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.4h" style="sysbar_btn_overdn" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.4h" blockinput="false" noclick="true"/>
+						<panel width="-1.0h" align="center" height="100%" float="right" padding="0.5h" noclick="true">
+							<panel grow="true" height="100%" noclick="true">
+								<image width="70@" height="70%" valign="center" texture="systembar/icons/notifications.tga" color="1 1 1 1" noclick="true" />
+							</panel>
+							<label width="2.9h" height="100%" textvalign="center" textalign="center" font="dyn_10" color="white" shadow="true" noclick="true" content="0" watch="ChatNotificationCount" ontrigger="SetText(param);"/>
+							<panel width="1" height="100%" valign="center" noclick="true">
+								<panel height="86%" color="0 0 0 1" valign="center" noclick="true" />
+							</panel>
+							<panel grow="true" height="100%" noclick="true">
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_down.tga" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(!StringEquals(param0, 'notification_history'));" />
+								<image width="40@" height="40%" valign="center" texture="/ui/elements/arrow_up.tga" visible="false" noclick="true" watch="SocialGroupVisiblePanel" ontrigger="SetVisible(StringEquals(param0, 'notification_history'));" />
+							</panel>
+						</panel>
+					</widgetstate>
+				</button>
+
+			</panel>
+
+			<!-- Quit Button -->
+			<panel name="sysbar_quit" visible="true" width="2.0h" height="2.0h" valign="center" color="invisible">
+				<button
+					color="invisible"
+					onclick="PlaySound('/shared/sounds/ui/ccpanel/button_close_02.wav'); If(GetCurrentGamePhase() ge 5, HideLobby(), Call('quit_confirm', 'FadeIn(250)'));"
+					onmouseover="PlaySound('/shared/sounds/ui/ccpanel/button_over_01.wav');"
+				>
+					<widgetstate statename="up">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.5h" color="#520000" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.5h" blockinput="false" noclick="true"/>
+						<image width="1.3h" height="1.3h" align="center" valign="center" color=".75 .75 .75 1" texture="/ui/elements/closex.tga" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="over">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.5h" color="#c50000" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.5h" blockinput="false" noclick="true"/>
+						<image width="1.3h" height="1.3h" align="center" valign="center" color="1 1 1 1" texture="/ui/elements/closex.tga" noclick="true" />
+					</widgetstate>
+					<widgetstate statename="down" x="1" y="1">
+						<frame texture="/ui/frames/rounded_bg_white.tga" borderthickness="0.5h" color="#9c0000" blockinput="false" noclick="true"/>
+						<frame texture="/ui/frames/roundframe.tga" color="0 0 0 1" borderthickness="0.5h" blockinput="false" noclick="true"/>
+						<image width="1.3h" height="1.3h" align="center" valign="center" color="1 1 1 1" texture="/ui/elements/closex.tga" noclick="true" />
+					</widgetstate>
+				</button>
+			</panel>
+
+		</panel>
+	</panel>
+
+
+</package>

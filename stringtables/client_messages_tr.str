@@ -1,0 +1,554 @@
+error_title						Hata
+error_unknown					Tanımlanamayan Hata.
+
+disconnect_title				Bağlantı Koptu
+disconnect_not_host				Bu serverde host özelliklerine sahip değilsiniz.
+disconnect_server_full			Sunucu Dolu.
+disconnect_game_in_progress		Oyuna giremezsiniz, çünkü oyun başlamış durumda.
+disconnect_server_error			Sunucu Hatası.
+disconnect_snapshot_fragment	Çok Fazla Ekran Görüntüsü.
+disconnect_not_invited			Özel oyuna girebilmek için davet edilmeniz gerekmektedir.
+disconnect_no_cookie			Sunucuya bağlanabilmek icin giriş yapmalısınız.
+disconnect_auth_failed			Sunucu hesabinizi tanımlayamadi. Lütfen tekrar giriş yapınız.
+disconnect_duplicate_connect	Bağlantınız koptu.Çünkü başka bir bilgisayardan hesabınıza giriş yapıldı.
+disconnect_unknown				Bağlantınız koptu.
+disconnect_timeout				Sunucudan yanıt yok.
+disconnect_game_over			Oyun sona erdi.
+disconnect_idle					Bağlantinizdaki yavaşlik nedeniyle koptunuz.
+disconnect_terminated			Çok fazla bağlantınız koptugu için aynı oyuna tekrar bağlanma hakkınız sona ermiştir.
+disconnect_kicked				Oyunu kuran kişi tarafından atıldınız.
+disconnect_vote_kicked			Oyunda oylama yapılarak atıldınız.
+disconnect_unassigned			Oyun basladi fakat takımda olmadığınız için atıldınız.
+disconnect_banned				Oyunu kuran kişi bu maçtan sizi banladı.
+disconnect_leaver				Bu sunucuya giremiyorsunuz çünkü Leaver oranınız çok yüksek.
+disconnect_not_verified			Bu oyuna giremezsiniz çünkü hesabınız onaylanmamış.
+disconnect_overflow				Bağlantınızın yavaşlıgından dolayı sunucuya erişiminiz sona erdi.
+disconnect_flooding				Çok fazla aynı yazi yazdiginiz icin atıldınız.
+disconnect_invalid_tier			Bu sıradaki oyunlara giremiyorsunuz.
+disconnect_invalid_psr			Oyun puanınız çok yüksek yada düşük olduğu için sunucuya giremiyorsunuz.
+disconnect_not_on_roster		Maç listesinde gözükmediğiniz için giremiyorsunuz.
+disconnect_modified_core_files	Bilgisayarınızdaki resources0.s2z dosyası değiştirildi.  Bu dosya degistirilemez!  Heroes of Newerth Oyununu tekrar kurun.
+disconnect_client_number_mismatch	Bağlantı Hatası, daha sonra tekrar deneyin.
+disconnect_trial_not_allowed		Deneme hesabiyla bu oyuna bağlanamazsınız. Deneme hesaplari yanlizca puan içermeyen oyunlara erisim sağlar.
+disconnect_duplicate_login			Sunucu hesabınızı tanımlayamıyor. Farkli bir bilgisayardan da giriş yapmadiğiniza emin olun.
+disconnect_duplicate_game_connect	Bağlantınız koptu. Çünkü bu hesap başka biri tarafından kullanılıyor.
+disconnect_unique_login_failed		Baglantiniz koptu. Çünkü sunucu hesabınızı tanımlayamıyor. Lütfen daha sonra tekrar deneyiniz.
+disconnect_mm_players_left		Bir yada daha fazla oyuncu maçtan çıktı.
+disconnect_mm_player_left		Oyuncu mactan çıktı.
+disconnect_mm_connect_timeout	Tanımsız bağlantı: Bağlantı süre aşımı.
+disconnect_mm_start_timeout		Oyuncuların maça girme süreleri çok uzadı. Maç süre aşımına uğradı.
+disconnect_basic				Basit hesaplar oyun kuramaz.
+disconnect_no_tokens			Bu modda oynayabilmeniz için oyun çekine ihtiyacınız var.
+disconnect_failed_refresh		Yenileme yaparken hata oluştu. Çıkış yapıldı.
+
+rejected_invalid_request		İstemciniz tanımsız hata iletisi gönderdi.
+rejected_empty_address			Sunucu adresi olmadığı için bağlanılamıyor.
+rejected_wrong_game				Farklı oyun hatası.
+rejected_wrong_version			Oyunun versiyonunu güncelleyin.
+rejected_banned					Oyundan banlandınız.
+rejected_invalid_password		Yanlış şifre.
+rejected_server_error			Oyun Hatası.
+rejected_server_taken			Seçili sunucuya bağlanılmış yada hasar görmüş olabilir. Sonra tekrar deneyin.
+rejected_not_host				Sunucularda problem olduğundan dolayı bağlanılamamaktadır.
+
+// chat system messages
+chat_connecting						^279* Sohbet sunucusuna bağlanılıyor...
+chat_reconnecting					^279* Sohbet sunucusuna bağlanılıyor... (Geçen süre {attempt} kalan {maxattempts})
+chat_waiting_verification			^279* Sohbet servisi doğrulanıyor...
+chat_connected						^279* Bağlandı!
+chat_connected_invisible			^279* Şu an görünmez modda bağlandınız. Arkadaşlarınız ve clanınızdaki arkadaşlarınız sizin hiçbir aktivitenizi göremezler.
+chat_disconnected					^279* Sohbet sunucusundan koptunuz.
+chat_reconnecting_delay				^279* 30 Saniye içinde bağlanacaksınız (Geçen süre {attempt} kalan {maxattempts}).
+chat_not_connected					^279* Sohbet sunucusuna bağlı değilsiniz.
+chat_new_channel					^279* Şu an ^090{channel}^279 kanalındasınız.
+chat_channel_message				^990{sender}:^888 {message}
+chat_channel_message_sent			^444{name}:^* {message}
+chat_whisper						^099 ^rÖM Alındı ({sender})  ^888{message}.
+chat_whisper_sent					^066 ^rÖM Gönderildi ({target})  ^888{message}.
+chat_whisper_buddies				^066<Mesaj Gönderildi> {message}
+chat_whisper_to_buddies				^099<{sender} Mesaj Alındı> {message}
+chat_whisper_failed_self			^279* Kendine mesaj yollayamazsın.
+chat_failed_invisible				^279* Görünmez modda mesaj yollayamazsın.
+chat_mode_switch_fail				^279* Oyun statüsünüzü görünmez moddayken değiştiremezsiniz.  Lütfen tekrar giriş yapınız.
+chat_mode_afk_auto_response			^099* ^990{target}^279 adlı kişiye mesajınız iletildi fakat kişi şu anda bilgisayar başında olmayabilir: {message}
+chat_mode_afk_default_response		Dışarıda
+chat_mode_dnd_auto_response			^099 Mesajınız iletilemedi,çünkü ^990{target}^279 adlı kişi rahatsız edilmek istemiyor: {message}
+chat_mode_dnd_default_response		Rahatsız Etmeyin
+chat_user_offline					^279* Kullanıcı Çevrimdışı.
+chat_im								^882{sender}: ^888{message}
+chat_im_sent						^444{name}: ^888{message}
+chat_im_failed						^279* ^990{target}^279 adlı kişi çevrimdışı.
+chat_clan_whisper					^359(Clan) {name}: ^888{message}
+chat_clan_whisper_sent				^458(Clan) {name}: ^888{message}
+chat_clan_whisper_failed			^279* Henüz bir clanda değilsiniz.
+chat_clan_im						^359{name}: ^888{message}
+chat_clan_im_sent					^458{name}: ^888{message}
+chat_flooding						^279* Mesajınız gönderilemedi - Çünkü çok fazla mesaj gönderdiniz. Lütfen sonra mesaj göndermeyi deneyin.
+chat_max_channels					^279* Daha fazla kanala bağlanamazsınız, lütfen diğer kanallardan çıkıp tekrar deneyin.
+chat_banned							^279* Bağlantı Koptu - Sohbet odasından {time} dakika banlandınız.
+chat_banned_connections				^279* Reason: Çok fazla giriş-çıkış yaptınız.
+chat_banned_flooding				^279* Reason: Yoğun mesaj.
+chat_banned_unknown					^279* Sebep: Belirsiz.
+chat_banned_reconnect				^279* {time} saniye içinde tekrar bağlanılıyor, (Zaman aşımı {attempt} kere {maxattempts}) .
+chat_info_not_found					^279* '^990{name}^279' adlı kullanıcı bulunamadı.
+chat_info_offline					^279* ^990{name}^279 şu an çevrimdışı, en son görülen zaman {seen}.
+chat_info_online_no_channels		^279* ^990{name}^279 şu an çevrimiçi ve hiç bir odada bulunmuyor.
+chat_info_online_one_channel		^279* ^990{name}^279 şu an çevrimiçi ve '{channel}' odasında.
+chat_info_online_multi_channels		^279* ^990{name}^279 şu an çevrimiçi ve : {channels} odalarında.
+chat_info_in_game					^279* ^990{name}^279 şu an oyunda '{game}^279'.
+chat_info_in_game_time				^279* ^990{name}^279 şu an çevrim içi ve oyunda '{game}^279'. Geçerli oyun süresi: {cgt}.
+chat_ignored						^279* ^990{name}^279 adlı kullanıcı engellendi.
+chat_unignored						^279* ^990{name}^279 adlı kullanıcının engeli kaldırıldı.
+chat_joining_game					^279* '^990{name}^279' oyununa girdiniz.
+chat_left_game						^279* Oyundan çıktınız.
+chat_user_info_online				^279* ^990{name}^279 şu an çevrimiçi.
+chat_user_info_offline				^279* ^990{name}^279 şu an çevrimdışı.
+chat_user_info_in_game				^279* ^990{name}^279 şu an oyunda '{game}'.
+chat_saving_channel					^279* ^g{channel}^279 adlı kanal otomatik giriş listesine kaydoluyor...
+chat_failed_saving_channel			^279* ^g{channel}^279 adlı kanal otomatik giriş listesine kaydolmadı...
+chat_invalid_channel				^279* ^g{channel}^279 adlı kanal otomatik giriş listesine kaydolmadı, bu bir clan odası yada yanlış karakter girilmiş olabilir. (% yada ^)
+chat_removing_channel				^279* ^g{channel}^279 adlı kanal otomatik giriş listenizden silindi...
+chat_failed_removing_channel		^279* ^g{channel}^279 adlı kanal otomatik giriş listesinden silinemiyor...
+chat_failed_saving_notification		^279* Bildirimler kaydedilemiyor...
+chat_failed_removing_notification	^279* Bildirimler silinemiyor {id}...
+chat_failed_removing_notifications	^279* Tüm bildirimler silinemiyor...
+chat_adding_buddy					^279* ^990{name}^279 adlı kişi artık arkadaşınız...
+chat_failed_buddy_add				^279* ^990{target}^279 adlı kişi arkadaş listenize eklenemiyor.
+chat_failed_buddy_add_self			^279* Kendinizi arkadaş listesine ekleyemezsiniz.
+chat_failed_buddy_remove_self		^279* Kendinizi arkadaşlık listesinden silemezsiniz.
+chat_failed_buddy_add_duplicate		^279* Kullanıcı ile zaten arkadaşsınız.
+chat_failed_buddy_add_reason		^279* ^990{target}^279 arkadaşlık listenize eklenemiyor: {reason}
+chat_failed_buddy_remove			^279* ^990{target}^279 arkadaşlık listenizden silinemiyor.
+chat_failed_buddy_remove_not_found	^279* Arkadaşlık listenizden silinemiyor sebep : Kullanıcı Adı Geçersiz.
+chat_approved_buddy_adder			^279* ^990{name}^279 Arkadaşlık listenize ekliyor...
+chat_approved_buddy_added			^279* ^990{name}^279 Arkadaşlık listesine ekle...
+chat_requesting_buddy				^279* ^990{name}^279 arkadaşlık isteği yollanıyor...
+chat_requested_approval_adder		^279* ^990{name}^279 adlı kişiye arkadaşlık isteği yollandı...
+chat_requested_approval_added		^279* ^990{name}^279 arkadaşlık isteği ...
+chat_requested_approval_failed		^279* ^990{name}^279 arkadaşlık isteği gönderimi başarısız...
+chat_requested_approval_duplicate	^279* ^990{name}^279 yada siz zaten istek göndermiş bulunmaktasınz, tekrar istek gönderebilmek için lütfen bekleyin...
+chat_requested_approval_ignored		^279* ^990{name}^279 sizi engelliler listesine ekledi, şu an arkadaşlık isteği gönderemezsiniz.
+chat_requested_approval_limit		^279* Arkadaşlık listesi limiti dolmuştur.
+chat_approving_buddy				^279* ^990{name}^279 arkadaşlık isteği kabul ediliyor...
+chat_failed_approving_buddy			^279* ^990{name}^279 arkadaşlık isteği başarısız...
+chat_clan_promoting					^279* ^990{name}^279 artık Mod...
+chat_failed_clan_promote			^279* ^990{target}^279 Rütbesi Yükseltilemiyor.
+chat_failed_clan_promote_cannot_promote		^279* Rütbe yükseltme yetkisine sahip değilsiniz.
+chat_failed_clan_promote_generic			^279* Rütbe yükseltilemiyor.
+chat_clan_demoting					^279*^990{name}^279 adlı kişinin rütbesi düşürülemiyor...
+chat_failed_clan_demote				^279*^990{target}^279 Rütbe düşürülemiyor.
+chat_failed_clan_demote_cannot_demote	^279* Rütbe düşüremezsiniz.
+chat_failed_clan_demote_generic			^279* Rütbe düşürülemiyor.
+chat_clan_removing					^279*^990{name}^279 adlı kişi gruptan atılıyor...
+chat_clan_removing_self				^279* Gruptan ayrılıyorsunuz...
+chat_failed_clan_remove				^279* ^990{target}^279 Gruptan atılamıyor.
+chat_failed_clan_remove_self		^279* Gruptan ayrılamıyorsunuz.
+chat_failed_clan_remove_demote		^279* Gruptan atmak için rütbesini düşürmeniz gerekiyor.
+chat_failed_clan_remove_generic		^279* Gruptan atılamıyor.
+chat_failed_clan_name				^279* Grup adını veya tagını kontrol edemiyorsunuz, sonra tekrar deneyin.
+chat_failed_clan_name_tip			Grup adı veya tagı kontrol edilemiyor, sonra tekrar deneyin.
+chat_invalid_clan_name				^279* ^990{name}^279 grup adı ve ^990{tag}^279 grup tagı kullanılamaz.
+chat_invalid_clan_name_tip			^990{name}^* grup adı ve tagı ^990{tag}^* kullanılamaz.
+chat_invalid_clan_name_used			^279* ^990{name}^279 grup adı zaten kullanılıyor.
+chat_invalid_clan_name_used_tip		^990{name}^* grup adı zaten kullanılıyor.
+chat_invalid_clan_tag_used			^279* ^990{tag}^279 grup tagı kullanılıyor.
+chat_invalid_clan_tag_used_tip		^990{tag}^* grup tagı kullanılıyor.
+chat_invalid_clan_name_format		^279* ^990{name}^279 grup adı olarak kullanılamaz. Alfa numerik karakterler, simgeler, boşluk ve 1 ile 32 karakter uzunluğunda olmalı.
+chat_invalid_clan_name_format_tip	^990{name}^* grup adı olarak kullanılamaz. Alfa numerik karakterler, simgeler, boşluk ve 1 ile 32 karakter uzunluğunda olmalı.
+chat_invalid_clan_tag_format		^279* ^990{tag}^279 grup tagı kullanılamaz. Alfa numerik karakterler ve 1 ile 4 karakter uzunluğunda olmalı.
+chat_invalid_clan_tag_format_tip	^990{tag}^* grup tagı kullanılamaz. Alfa numerik karakterler ve 1 ile 4 karakter uzunluğunda olmalı.
+chat_success_buddy_add				^279* ^990{target}^279 arkadaşlık listende.
+chat_success_buddy_remove			^279* ^990{target}^279 arkadaşlık listenden silindi.
+chat_success_clan_promote			^279* ^990{target}^279 Rütbe verildi.
+chat_success_clan_demote			^279* ^990{target}^279 Rütbe düşürüldü.
+chat_success_clan_remove			^279* ^990{target}^279 gruptan atıldı.
+chat_success_clan_remove_self		^279* Gruptan ayrıldınız.
+chat_topic_change					^279* Kanal başlığı '^990{topic}^279' olarak değiştirildi.
+chat_topic							^279* Kanal Başlığı'^990{topic}^279'.
+chat_not_operator					^279* Bu kanalda yönetici haklarına sahip değilsiniz.
+chat_user_kicked					^279* ^990{kickee}^279 adlı kişi ^990{kicker}^279 tarafından atıldı.
+chat_kicked							^279* '^990{channel}^279' kanalından ve ^990{kicker}^279 adlı kişi tarafından atıldınız.
+chat_user_banned					^279* ^990{banned}^279 Kanalından ^990{banner}^279 kişi tarafından yasaklandınız.
+chat_user_banned_no_name			^279* ^990{banned}^279 kanalından yasaklandınız.
+chat_channel_banned					^279* '^990{channel}^279' Kanalından ve by ^990{banner}^279 adlı kişi tarafından yasaklandınız.
+chat_channel_banned_no_name			^279* '^990{channel}^279' Kanalından yasaklandınız.
+chat_user_unbanned					^279* ^990{unbanned}^279 kanalından yasağınız ^990{unbanner}^279 adlı kişi tarafından kaldırıldı.
+chat_user_unbanned_no_name			^279* ^990{unbanned}^279 Kanalından yasağınız kalktı.
+chat_unbanned						^279* '^990{channel}^279' kanalından yasağınız ^990{unbanner}^279 adlı kişi tarafından kaldırıldı.
+chat_unbanned_no_name				^279* '^990{channel}^279' adlı kanaldan yasağınız kalktı.
+chat_banned_from_channel			^279* '^990{channel}^279' kanalından yasaklandınız.
+chat_silenced						^279* Bu kanalda susturuldunuz ve konuşamazsınız.
+chat_silence_lifted					^279* '^990{channel}^279' adlı kanaldan susturulma cezanız kalkmıştır.
+chat_silence_placed					^279* ^990{name}^279 adlı kişi tarafından '^990{channel}^279' adlı kanalda {duration} kadar dakika susturuldunuz.
+chat_user_silence_placed			^279* ^990{silenced}^279 has been silenced by ^990{name}^279 for {duration} minute(s).
+chat_message_all					^900{name}:^999 {message}
+chat_roll_message					{player} rolled {low} {high} and got {number}.
+chat_current_time					Geçen Zaman: {time}.
+chat_current_ping					Pinginiz: {ping}.
+chat_adding_banlist					^279* ^990{name}^279 adlı kişi yasaklı listesine eklendi...
+chat_failed_banlist_add				^279* ^990{target}^279 yasaklı listesine eklenemedi.
+chat_failed_banlist_add_self		^279* Kendinizi yasaklı listesine ekleyemezsiniz.
+chat_failed_banlist_add_duplicate	^279* Kullanıcı zaten yasaklı listenizde.
+chat_failed_banlist_add_reason		^279* ^990{target}^279 adlı kişi yasaklı listenize eklenemedi.: {reason}
+chat_failed_banlist_remove			^279* ^990{target}^279 yasaklı listenizden kaldırılamadı.
+chat_failed_banlist_remove_not_found	^279* Yasaklı listenizden kaldırılamadı : Sebep Kullanıcı bulunamadı.
+chat_success_banlist_add				^279* ^990{target}^279 Artık yasaklı listenizde.
+chat_success_banlist_remove				^279* ^990{target}^279 yasaklı listenizden kaldırıldı.
+chat_adding_ignore						^279* ^990{name}^279 Yasaklı listenize eklendi...
+chat_failed_ignore_add					^279* ^990{target}^279 yasaklı listenize eklenemedi.
+chat_failed_ignore_add_self				^279* Kendinizi yasaklı listesine ekleyemezsiniz.
+chat_failed_ignore_add_duplicate		^279* Kullanıcı zaten yasaklı listesinde.
+chat_failed_ignore_add_reason			^279* ^990{target}^279 Yasaklı listesine eklenemedi: {reason}
+chat_failed_ignore_remove				^279* ^990{target}^279 yasaklı listesinden silinemiyor.
+chat_failed_ignore_remove_not_found		^279* Yasaklı listesinden silinemiyor: Kullanıcı bulunamadı.
+chat_success_ignore_add					^279* ^990{target}^279 yasaklı listesine eklendi.
+chat_success_ignore_remove				^279* ^990{target}^279 yasaklı listesinden silindi.
+chat_user_on_banlist					^279* ^990{name}^279 yasaklı listenizde: ^999{reason}
+chat_admin_level_none				Yönetici Bilgisi Yok
+chat_admin_level_officer			Kanal Modu
+chat_admin_level_leader				Kanal Yöneticisi
+chat_admin_level_administrator		Kanal Üst Yöneticisi
+chat_admin_level_staff				Üye
+chat_promote_success				^279* ^990{name}^279 Adlı kişi ^990{rank}^279 seviyesine ^990{promoter}^279 tarafından yükseltildi.
+chat_promote_failure				^279* Seviye yükseltmek için yetkiniz bulunmamaktadır.
+chat_demote_success					^279* ^990{name}^279 adlı kullanıcının yetkisi ^990{rank}^279 rütbesine düşmüştür.Düşüren ^990{demoter}^279.
+chat_demote_failure_too_low			^279* En düşük yönetici rütbesine sahiptir.
+chat_demote_failure					^279* Rütbe düşürmek için yetkiniz bulunmamaktadır.
+chat_not_in_channel					^279* Kullanıcı kanalda bulunmamaktadır.
+chat_im_user_offline				^279* ^990{name}^279 şu an çevrimdışı.
+chat_im_user_online					^279* ^990{name}^279 şu an çevrim içi.
+chat_version_mismatch				^279* Sizin versiyonunuz sohbet versiyonu ile uyuşmamaktadır.
+chat_no_permissions					^279* Sizin izin yetkileriniz bu kanalda etkin değildir.
+chat_auth_enabled					^279* İzin kapatılmış  bulunmaktadır, izinliler haricinde kimse giremez.
+chat_auth_disabled					^279* İzin etkin bulunmaktadır, bütün kullanıcılar girebilir.
+chat_auth_add_success				^279* ^990{name}^279 izin listesine dahil olmuştur.
+chat_auth_add_failure				^279* ^990{name}^279 zaten izin listesinde bulunmaktadır.
+chat_auth_remove_success			^279* ^990{name}^279 izin listesinden kaldırıldı.
+chat_auth_remove_failure			^279* ^990{name}^279 izin listesinde değil.
+chat_password_change				^279* ^990{name}^279 tarafından kanalın şifresi değiştirildi.
+chat_password_required				^279* ^990{name}^279 parola gerektiriyor.
+chat_error_clan_rank				^279* Bu işlemi yapmak için daha yüksek rütbe gerekiyor.
+chat_error_clan_not_found			^279* ^990{name}^279 grup listesinde bulunamadı.
+chat_clan_invite_sent				^279* ^990{name}^279 adlı kişiye grup daveti yollandı...
+chat_failed_clan_invite_in_clan			^279* ^990{name}^279 zaten grupta.
+chat_clan_invite_received				^279* ^990{name}^279 adlı kişi ^990{clan}^279 gruba davet ediyor.
+chat_clan_invite_rejected				^279* ^990{name}^279 adlı kişi grup davetini reddetti.
+chat_clan_invite_failed_online			^279* Kullanıcı bulunamadı.
+chat_clan_invite_failed_clan			^279* Kullanıcı zaten bir grupta.
+chat_clan_invite_failed_invite			^279* Kullanıcı zaten sizi bir gruba davet etmiş.
+chat_clan_invite_failed_permissions		^279* Gruba davet etmek için yetkiniz bulunmamaktadır.
+chat_clan_invite_failed_unknown			^279* ^990{name}^279 adlı kişi gruba eklenemedi .
+chat_clan_invite_failed_unknown_self	^279* Gruba giremediniz.
+chat_clan_new_user						^279* ^990{name}^279 gruba katıldı.
+chat_clan_new_user_self					^279* ^990{clan}^279 adlı gruba katıldınız.
+chat_clan_create_fail_clan				^279* Grup kurabilmek için gruptan çıkmalısınız.
+chat_clan_create_fail_param				^279* Grup kurulamıyor - eksik parametre!
+chat_clan_create_fail_tag				^279* Grup kurulamıyor - grup tagı çok uzun.
+chat_clan_create_fail_in_clan			^279* Grup kurulamıyor - ^990{name}^279 zaten başka bir grupta.
+chat_clan_create_fail_duplicate			^279* Grup kurulamıyor - Aynı kişiye davet yollayamazsınız.
+chat_clan_create_fail_invite			^279* Grup kurulamıyor - ^990{name}^* grup davetini kabul etmiyor.
+chat_clan_create_fail_not_found			^279* Grup kurulamıyor - ^990{name}^* bulunamadı.
+chat_clan_create_fail_clan_name			^279* Grup kurulamıyor - Grup adı geçersiz. 1 ve 32 karakter arası ve başka bir grup adıyla çakışmamalıdır.
+chat_clan_create_fail_tag				^279* Grup kurulamıyor - Grup tagı geçersiz. 1 ve 4 karakter arası ve başka bir grup tagıyla çakışmamalıdır.
+chat_clan_create_fail_unknown			^279* Grup kurulamıyor.
+chat_clan_create_fail_time				^279* Grup kurulamıyor - Gerekli zamanda grup elemanı toplayamadığınız için kurulamıyor.
+chat_clan_create_result_fail_clan		Grup kurmanız için ilk önce grubunuzdan ayrılmanız gerekiyor.
+chat_clan_create_result_fail_param		Hata - Eksik Parametre!
+chat_clan_create_result_fail_tag		Hata - Grup tagı çok uzun.
+chat_clan_create_result_fail_in_clan	Hata - ^990{name}^* zaten bir grupta.
+chat_clan_create_result_fail_duplicate	Hata - Zaten davet edilmiş.
+chat_clan_create_result_fail_invite		Hata - ^990{name}^* askıda kalan grup davetiyesi.
+chat_clan_create_result_fail_not_found	Hata - ^990{name}^* bulunamadı.
+chat_clan_create_result_fail_clan_name	Hata - Grup ismi kabul edilemez.
+chat_clan_create_result_fail_tag		Hata - Grup tagı kabul edilemez.
+chat_clan_create_result_fail_unknown	Grup kurulamıyor.
+chat_clan_create_result_fail_time		Hata - Zaman Aşımı.
+chat_clan_create_sent					^279* Grup kurma isteği yollandı, kullanıcıların onayı bekleniyor.
+chat_clan_create_accept					^279* ^990{name}^279 grup kurma isteğinizi kabul etti.
+chat_clan_create_reject					^279* ^990{name}^279 grup kurma isteğinizi reddetti.
+chat_clan_create_result_reject			Hata - ^990{name}^* isteğinizi reddetti.
+chat_clan_create_success				^279* Grup şu anda aktif halde.
+chat_clan_create_result_success			Başarılı! Grup şu anda kuruldu.
+chat_clan_left							^279* ^990{name}^279 gruptan ayrıldı.
+chat_clan_left_self						^279* Gruptan ayrıldınız.
+chat_clan_kick							^279* ^990{changer}^279 adlı kullanıcı , ^990{name}^279 adlı kullanıcıyı gruptan attı.
+chat_clan_kick_self						^279* ^990{changer}^279 adlı kullanıcı sizi gruptan attı.
+chat_clan_joined						^279* ^990{name}^279 gruba dahil oldu.
+chat_clan_rank_change					^279* ^990{changer}^279 adlı kullanıcı ^990{name}^279 adlı kullanıcının rütbesini değiştirdi ^990{rank}^279.
+chat_clan_rank_change_self				^279* ^990{changer}^279 adlı kullanıcı rütbenizi ^990{rank}^279 'a yükseltti.
+chat_clan_rank_none						Grupta Yok
+chat_clan_rank_member					Üye
+chat_clan_rank_officer					Mod
+chat_clan_rank_leader					Lider
+chat_clan_no_clan						^279* Henüz bir grupta bulunmuyorsunuz.
+chat_tourn_match_ready					^279* Maç turnuva kurallarına göre oynanacaktır, ^990{name}^279, giriş için hazır. Müsabakalara grup panelinden ulaşabilirsiniz.
+chat_unable_to_join_group				Turnuva maçına giremezsiniz, turnuva başlamış bulunmakta veya yeniden oynanmaktadır.
+
+
+// stats
+chat_stats_header				^492* ^982{name}^492 İstatistikleri
+chat_stats_body1				^492    Grup: ^999{clan_name}   ^982||   ^492    Seviye: ^999{level}   ^982||   ^492Kzn: ^999{wins}^555({winpercent}) ^492Kyb: ^999{losses} ^492Kop: ^999{disconnects}^555({leavepercent})
+chat_stats_body2				^492    K/D/A: ^999{kills} ^492/ ^999{deaths} ^492/ ^999{assists}   ^982||   ^492Exp / Dak: ^999{expmin}   ^982||   ^492PSR: ^999{psr}
+
+// chat notifications
+chat_notification_cc_panel				F6 ya basarak panele ulaşabilirsiniz.
+chat_notification_buddy_online			{name} çevrimiçi.
+chat_notification_buddy_offline			{name} çevrimdışı.
+chat_notification_buddy_joined_game		{name} oyuna girdi '{game}'.
+chat_notification_buddy_left_game		{name} oyundan çıktı '{game}'.
+chat_notification_clan_online			{name} çevrimiçi.
+chat_notification_clan_offline			{name} çevrimdışı.
+chat_notification_clan_joined_game		{name} oyuna girdi '{game}'.
+chat_notification_clan_left_game		{name} oyundan çıktı '{game}'.
+chat_notification_clan_whisper			(Grup) {name}: {message}
+chat_notification_clan_whisper_sent		(Grup) {name}: {message}
+chat_notification_clan_new_user			{name} gruba dahil oldu.
+chat_notification_clan_new_user_self	Gruba dahil oldunuz {clan}.
+chat_notification_clan_left_self		Gruptan ayrıldınız.
+chat_notification_clan_left				{name} gruptan ayrıldı.
+chat_notification_clan_joined			{name} gruba dahil oldu.
+chat_notification_clan_rank_change		{changer} adlı kullanıcı ^990{name}^279'nın rütbesini ^990{rank}^279 olarak değiştirdi.
+chat_notification_clan_rank_change_self	{changer} adlı kullanıcı rütbenizi değiştirdi ^990{rank}^279.
+chat_notification_clan_kick				{changer} adlı kullanıcı ^990{name}^279 adlı kullanıcıyı gruptan attı.
+chat_notification_clan_kick_self		{changer} sizi gruptan attı.
+
+// chat commands
+chat_command_whisper				/whisper
+chat_command_whisper_short			/w
+chat_command_whisper_help			^279*^707 /whisper <name> <message>.
+chat_command_reply					/reply
+chat_command_reply_short			/r
+chat_command_reply_invalid			^279* Kimse mesaj atmamış!
+chat_command_reply_help				^279*^707 /reply <message>.
+chat_command_buddy					/buddy
+chat_command_buddy_short			/b
+chat_command_buddy_list				list
+chat_command_buddy_list_short		l
+chat_command_buddy_list_message		^279* Arkadaşlar listeleniyor...
+chat_command_buddy_list_none		^279* Arkadaş listende kimse bulunmuyor.
+chat_command_buddy_list_help		^279*^707 /buddy list.
+chat_command_buddy_message			message
+chat_command_buddy_message_short	m
+chat_command_buddy_message_help		^279*^707 /buddy message <Mesaj>.
+chat_command_buddy_add				add
+chat_command_buddy_add_short		a
+chat_command_buddy_add_help			^279*^707 /buddy add <Kullanıcı Adı>.
+chat_command_buddy_delete			delete
+chat_command_buddy_delete_short		d
+chat_command_buddy_delete_help		^279*^707 /buddy delete <Kullanıcı Adı>.
+chat_command_clan					/clan
+chat_command_clan_short				/c
+chat_command_clan_list				list
+chat_command_clan_list_short		l
+chat_command_clan_list_message		^279* Grup kullanıcıları listeleniyor...
+chat_command_clan_list_none			^279* Grubunuzda kimse yok.
+chat_command_clan_list_help			^279*^707 /clan list.
+chat_command_clan_message			message
+chat_command_clan_message_short		m
+chat_command_clan_message_help		^279*^707 /clan message <mesaj>.
+chat_command_clan_promote			promote
+chat_command_clan_promote_short		p
+chat_command_clan_promote_help		^279*^707 /clan promote <Kullanıcı Adı>.
+chat_command_clan_demote			demote
+chat_command_clan_demote_short		d
+chat_command_clan_demote_help		^279*^707 /clan demote <Kullanıcı Adı>.
+chat_command_clan_remove			remove
+chat_command_clan_remove_short		r
+chat_command_clan_remove_help		^279*^707 /clan remove <Kullanıcı Adı>.
+chat_command_clan_invite			invite
+chat_command_clan_invite_short		i
+chat_command_clan_invite_help		^279*^707 /clan invite <Kullanıcı Adı>.
+chat_command_clan_leave				leave
+chat_command_clan_leave_short		l
+chat_command_clan_leave_help		^279*^707 /clan leave.
+chat_command_clear					/clear
+chat_command_clear_short			/cl
+chat_command_join					/join
+chat_command_join_help				^279*^707 /join <Kanal> "password".  (Eğer şifre gerektiriyorsa)
+chat_command_join_short				/j
+chat_command_invite					/invite
+chat_command_invite_short			/i
+chat_command_invite_help			^279*^707 /invite <Kullanıcı Adı>.
+chat_command_whois					/whois
+chat_command_whois_short			/who
+chat_command_whois_help				^279*^707 /whois <Kullanıcı Adı>.
+chat_command_stats					/stats
+chat_command_stats_short			/s
+chat_command_stats_pop				pop
+chat_command_stats_help				^279*^707 /stats <Kullanıcı Adı> [pop].
+chat_command_joingame				/joingame
+chat_command_joingame_short			/jg
+chat_command_joingame_buddy			buddy
+chat_command_joingame_buddy_short	b
+chat_command_joingame_name			name
+chat_command_joingame_name_short	n
+chat_command_joingame_ip			ip
+chat_command_joingame_ip_short		i
+chat_command_joingame_buddy_help	^279*^707 /joingame buddy <Kullanıcı Adı>
+chat_command_joingame_name_help		^279*^707 /joingame name <Kullanıcı Adı>
+chat_command_joingame_ip_help		^279*^707 /joingame ip <İp adresi>
+chat_command_joingame_buddy_failed	^279* Oyuna Giriş Yapılamadı - Kullanıcı bulunamıyor ya da herhangi bir oyunda değil.
+chat_command_topic					/topic
+chat_command_topic_short			/t
+chat_command_topic_help				^279*^707 /topic
+chat_command_topic_set_help			^279*^707 /topic <Kanal Başlığı> (Kanal Yöneticisi Olmanız Gerekir)
+chat_command_kick					/kick
+chat_command_kick_short				/k
+chat_command_kick_help				^279*^707 /kick <Kullanıcı Adı> (Kanal Yöneticisi Olmanız Gerekir)
+chat_command_ban					/ban
+chat_command_ban_help				^279*^707 /ban <Kullanıcı Adı> (Kanal Yöneticisi Olmanız Gerekir)
+chat_command_unban					/unban
+chat_command_unban_help				^279*^707 /unban <Kullanıcı Adı> (Kanal Yöneticisi Olmanız Gerekir)
+chat_command_silence				/silence
+chat_command_silence_help			^279*^707 /silence <Kullanıcı Adı> <Kaç Dakika> (Kanal Yöneticisi Olmanız Gerekir)
+chat_command_message_all_long		/messageall
+chat_command_message_all			/msgall
+chat_command_banlist				/banlist
+chat_command_banlist_short			/bl
+chat_command_banlist_list			list
+chat_command_banlist_list_short		l
+chat_command_banlist_list_message	^279* Yasaklılar Listeleniyor...
+chat_command_banlist_list_none		^279* Yasaklı listenizde kimse bulunmuyor.
+chat_command_banlist_list_entry		^999{name}: ^888{Sebep}
+chat_command_banlist_list_help		^279*^707 /banlist list.
+chat_command_banlist_add			add
+chat_command_banlist_add_short		a
+chat_command_banlist_add_help		^279*^707 /banlist add <Kullanıcı Adı> <Sebep>.
+chat_command_banlist_delete			delete
+chat_command_banlist_delete_short	d
+chat_command_banlist_delete_help	^279*^707 /banlist delete <Kullanıcı Adı>.
+chat_command_ignorechat				/ignorechat
+chat_command_ignorechat_short		/ic
+chat_command_ignorechat_enemy_all_on	^279* Karşı takımın yazılarını göremiyorsunuz.
+chat_command_ignorechat_all_on		^279* 2 Takımında Yazılarını göremiyorsunuz.
+chat_command_ignorechat_team_on		^279* Takımınızdaki yazılanları göremiyorsunuz.
+chat_command_ignorechat_every_on	^279* Kimsenin yazığını göremiyorsunuz.
+chat_command_ignorechat_off			^279* Sohbetteki yazılar görünür halde.
+chat_command_ignore					/ignore
+chat_command_ignore_list			list
+chat_command_ignore_list_short		l
+chat_command_ignore_list_message	^279* Engellenenler Listeleniyor...
+chat_command_ignore_list_none		^279* Engelli listesi boş.
+chat_command_ignore_list_entry		^999{name}
+chat_command_ignore_list_help		^279*^707 /ignore list.
+chat_command_ignore_add				add
+chat_command_ignore_add_short		a
+chat_command_ignore_add_help		^279*^707 /ignore add <Kullanıcı Adı>.
+chat_command_ignore_delete			delete
+chat_command_ignore_delete_short	d
+chat_command_ignore_delete_help		^279*^707 /ignore delete <Kullanıcı Adı>.
+chat_command_notes					/notes
+chat_command_notes_short			/n
+chat_command_notes_list				list
+chat_command_notes_list_short		l
+chat_command_notes_list_message		^279* Notlar listeleniyor...
+chat_command_notes_list_none		^279* Hiç bir not girişiniz bulunmamaktadır.
+chat_command_notes_list_entry		^279{id}: ^888{note}
+chat_command_notes_list_help		^279*^707 /notes list.
+chat_command_notes_add				add
+chat_command_notes_add_success		^279* Not girişi yapıldı.
+chat_command_notes_add_short		a
+chat_command_notes_add_help			^279*^707 /notes add <Not>.
+chat_command_notes_delete			delete
+chat_command_notes_delete_short		d
+chat_command_notes_delete_help		^279*^707 /notes delete <id>.
+chat_command_notes_delete_success	^279* Not silindi.
+chat_command_notes_delete_invalid	^279* Yanlış not ID.
+chat_command_promote				/promote
+chat_command_promote_short			/p
+chat_command_promote_help			^279*^707 /promote <isim> (Kanal Yöneticisi Olmanız Gerekir)
+chat_command_demote					/demote
+chat_command_demote_short			/d
+chat_command_demote_help			^279*^707 /demote <isim> (Kanal Yöneticisi Olmanız Gerekir)
+chat_command_auth					/auth
+chat_command_auth_short				/a
+chat_command_auth_list				list
+chat_command_auth_list_short		l
+chat_command_auth_list_message		^279* Yetkili Kullanıcılar Listeleniyor...
+chat_command_auth_list_none			^279* Şu an kanalda yetkili bir kişi yok.
+chat_command_auth_list_entry		^999{name}
+chat_command_auth_list_help			^279*^707 /auth list.
+chat_command_auth_add				add
+chat_command_auth_add_short			a
+chat_command_auth_add_help			^279*^707 /auth add <Kullanıcı Adı>.
+chat_command_auth_delete			delete
+chat_command_auth_delete_short		d
+chat_command_auth_delete_help		^279*^707 /auth delete <Kullanıcı Adı>.
+chat_command_auth_enable			enable
+chat_command_auth_enable_help		^279*^707 /auth enable (İzin yetkisine sahip herkes kanala girebilir.).
+chat_command_auth_disable			disable
+chat_command_auth_disable_help		^279*^707 /auth disable.
+chat_command_password				/password
+chat_command_password_short			/pass
+chat_command_password_set_help		^279*^707 /password (Şifreyi sıfırlar, yönetici yetkileri gerektirir.)
+chat_command_password_clear_help	^279*^707 /password <password> (Şifreyi ayarlar, yönetici yetkileri gerektirir)
+chat_command_roll					/roll
+chat_command_roll_help				^279*^707 /roll <düşük> <yüksek> (Rolls hangisine yakınsa düşük veya yüksek olduğu anlaşılır, (1 ile 32,767 arası)).
+chat_command_emote					/emote
+chat_command_emote_help				^279*^707 /emote <emote mesaj>.
+chat_command_emote_short			/em
+chat_command_time					/time
+chat_command_ping					/ping
+chat_command_matchup				/matchup
+chat_command_matchup_short			/ma
+chat_command_matchup_help			Maç bilgilerini alabilmek için maçın başlamasını beklemelisiniz.
+chat_command_gameinfo				/gameinfo
+chat_command_gameinfo_short			/gi
+chat_command_ping_all				/pingall
+chat_command_ping_all_short			/pa
+chat_command_available				/available
+chat_command_available_message		^279* Durumunuz şu an 'çevrimçi'.
+chat_command_afk					/afk
+chat_command_afk_message			^279* Durumunuz şu an 'klavyeden uzak': {sebep} 
+chat_command_dnd					/dnd
+chat_command_dnd_message			^279* Durumunuz şu an 'rahatsız etmeyin': {sebep}
+
+chat_command_weather				/weather
+chat_command_weather_intro			^279* Hava durumu komutları:
+chat_command_weather_entry			^279* /weather {İsim}
+chat_command_weather_selected		^279* Hava durumu seçildi '{isim}'
+
+chat_command_help					/help
+chat_command_help_short				/h
+chat_command_character				/
+chat_command_invalid_format			^279* Yanlış komut formatı. Doğrusu:
+chat_command_invalid_format_multi	^279* Yanlış komut formatı. Örnek format:
+chat_command_invalid_command		^279* Yanlış komut. {helpcommand} komutunu yazarak komutları listeleyebilirsiniz.
+chat_command_help_valid				^279* Kullanılabilir komutlar :
+chat_command_help_whisper			^279*^707 /whisper <Kullanıcı Adı> <Mesajınız>^279  -Oyuncuya fısıldarsınız.
+chat_command_help_reply				^279*^707 /reply <Mesajınız>^279               -Son kullanıcıya fısıldarsınız.
+chat_command_help_buddy				^279*^707 /buddy <command> <arguments>^279   -Various buddy-related commands.
+chat_command_help_clan				^279*^707 /clan <command> <arguments>^279    -Various clan-related commands.
+chat_command_help_join				^279*^707 /join <channel> "password"^279     -İsmini yazdığınız odaya giriş yapmanızı sağlar (Şifre var ise Join den sonra yazınız).
+chat_command_help_clear				^279*^707 /clear^279                         -Sohbet geçmişini siler.
+chat_command_help_invite			^279*^707 /invite <Kullanıcı Adı>^279        -Oyuna davet etmeniz için invite'den sonra davet edeceğiniz kişinin kullanıcı adını giriniz.
+chat_command_help_whois				^279*^707 /whois <Kullanıcı Adı>^279         -Kullanıcının durumunu sorgular.
+chat_command_help_stats				^279*^707 /stats <Kullanıcı Adı> [pop]^279   -Kullanıcının istatistiklerini gösterir (Optionally include "pop" to drop stats down).
+chat_command_help_joingame			^279*^707 /joingame <tip> <parametre>^279    -Oyuna giriş yapmanızı sağlar.
+chat_command_help_topic				^279*^707 /topic [Başlık]^279                -Kanalın başlığına bakar yada değiştirirsiniz
+chat_command_help_kick				^279*^707 /kick <isim>^279                   -Oyuncuyu atmanızı sağlar (Yönetici Yetkileri Gerektirir).
+chat_command_help_ban				^279*^707 /ban <isim>^279                    -Oyuncuyu yasaklamanızı sağlar (Yönetici Yetkileri Gerektirir).
+chat_command_help_unban				^279*^707 /unban <isim>^279                  -Oyuncunun yasağını açar (Yönetici Yetkileri Gerektirir).
+chat_command_help_silence			^279*^707 /silence <isim> <süre>^279         -Oyuncuyu <süre> dakika susturur (Yönetici Yetkileri Gerektirir).
+chat_command_help_promote			^279*^707 /promote <isim>^279                -Hedef oyuncuya yetki verir (Yönetici Yetkileri Gerektirir)
+chat_command_help_demote			^279*^707 /demote <isim>^279                 -Hedef oyuncunun yetkisini alır (Yönetici Yetkileri Gerektirir)
+chat_command_help_banlist			^279*^707 /banlist <yorum> <sebep>^279       -Yasaklı listenizi kontrol eder.
+chat_command_help_ignore			^279*^707 /ignore <yorum> <sebep>^279        -Engelli listenizi kontrol eder.
+chat_command_help_ignorechat		^279*^707 /ignorechat^279					 -Takım içi ve dışı konuşmaları kapatır.
+chat_command_help_notes				^279*^707 /notes <yorum> <sebep>^279         -Not kontrol komutu.
+chat_command_help_auth				^279*^707 /auth <yorum> <sebep>^279          -Kanaldaki yönetici listesini listeler. (Yönetici Yetkileri Gerektirir)
+chat_command_help_password			^279*^707 /password <password>^279           -Kanalda kullanılan şifreyi değiştirir. (Yönetici Yetkileri Gerektirir)
+chat_command_help_password_clear	^279*^707 /password^279						 -Kanalda kullanılan şifreyi sıfırlar. (Yönetici Yetkileri Gerektirir)
+chat_command_help_roll				^279*^707 /roll <low> <high>^279			 -Rolls a number between low and high, (1 through 32,767).
+chat_command_help_emote				^279*^707 /emote <Mesajınız>^279			 -Emotes olarak mesaj atmanızı sağlar.
+chat_command_help_time				^279*^707 /time^279                          -Zamanı gösterir.
+chat_command_help_ping				^279*^707 /ping^279 (Sadece Oyun İçinde)     -Gecikme sürenizi gösterir.
+chat_command_help_matchup			^279*^707 /matchup^279 (Sadece Oyun İçinde)  -Oyuncuların oyundaki takım/isim/renk/hero larını gösterir.
+chat_command_help_gameinfo			^279*^707 /gameinfo^279 (Sadece Oyun İçinde) -Oyun sunucusu ile ilgili bilgileri verir.
+chat_command_help_available			^279*^707 /available^279					 -Sohbet statünüzü 'Çevrimiçi Modu'na getirir.
+chat_command_help_afk				^279*^707 /afk <afk Mesajınız>^279			 -Sohbet statünüzü 'Klavyeden Uzak' a getirir, otomatik olarak öm leri yanıtlar Mesajınız'a yazılan yeri yazar.
+chat_command_help_dnd				^279*^707 /dnd <dnd Mesajınız>^279			 -Sohbet statünüzü 'Rahatsız Etmeyin'e getirir, gelen mesajları durdurur ve öm lere geri dönüş olarak Mesajınız kısmına yazdığınızı yazar.
+chat_command_help_weather			^279*^707 /weather^279 (Sadece Oyun İçinde)  -Hava Değişikliklerini Ayarlar
+chat_command_help_misc				^279* Herhangi bir komutu yazarak kullanabilirsiniz. Yardım için TR kanalına başvurunuz.
+
+//End

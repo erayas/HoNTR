@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<modification 
+application="Heroes of Newerth"  
+mmversion="1.1" 
+name="Türkçe 0.1.0 Beta" 
+version="2.133" 
+description="Türkçe Çeviri"
+author="kadeve"
+weblink="http://forums.heroesofnewerth.com/showthread.php?t=241709"
+updatecheckurl="http://www.hontr.com/version.txt"
+updatedownloadurl="http://www.hontr.com/turkce.honmod"
+>
+
+		<copyfile name="ui\fe2\system_bar.package" overwrite="yes"/>
+		<copyfile name="stringtables\interface_en.str" overwrite="yes"/>
+		<copyfile name="ui\fe2\elements\flag_tr.dds" />
+		<copyfile name="stringtables\client_messages_tr.str" />
+		<copyfile name="stringtables\entities_tr.str" />
+		<copyfile name="stringtables\game_messages_tr.str" />
+		<copyfile name="stringtables\interface_tr.str" />
+		<copyfile name="core\fonts\game_tr.ttf" />
+		<copyfile name="core\fonts\system_tr.ttf" />
+		<copyfile name="core_tr.resources" />
+				
+</modification>
