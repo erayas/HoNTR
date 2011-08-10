@@ -175,7 +175,7 @@ main_label_login_status_success				Giriş Yapıldı.
 main_label_login_status_failed				Giriş Başarısız: {reason}
 main_label_login_garena						Heroes of Newerth'u Garena Messenger'dan açın.
 main_button_create_account					Hesap Oluştur
-main_button_need_login						Çevrimiçi Oynamak İçin Giriş Yapın
+main_button_need_login						Çevrimiçi Oynamak İçin Giriş Yapın.
 main_button_play_online						Çevrimiçi Oyna
 main_button_local_game						Lokal Oyun
 main_button_options							Ayarlar
